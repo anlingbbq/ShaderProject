@@ -1,4 +1,6 @@
-﻿Shader "Custom/TextShader02" {
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+Shader "Custom/TextShader02" {
 	Properties {
 		_color("Color", Color) = (1, 1, 1, 1)
 	}
@@ -20,7 +22,7 @@
 
 			v2f vert(a2v v) {
 				v2f f;
-				f.position = mul(UNITY_MATRIX_MVP, v.vertex);
+				f.position = UnityObjectToClipPos(v.vertex);
 				return f;
 			}
 

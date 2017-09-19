@@ -1,4 +1,6 @@
-﻿// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
+
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
 // Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
 
@@ -33,7 +35,7 @@ Shader "Custom/BasicColor" {
 
 			v2f vert(a2v v) {
 				v2f f;
-				f.position = mul(UNITY_MATRIX_MVP, v.vertex);
+				f.position = UnityObjectToClipPos(v.vertex);
 				f.viewDir = normalize(_WorldSpaceCameraPos.xyz - mul(v.vertex, unity_WorldToObject).xyz);;
 				f.normal = normalize(UnityObjectToWorldNormal(v.normal));
 				return f;
