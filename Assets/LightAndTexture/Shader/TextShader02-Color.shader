@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "Custom/TextShader02" {
+Shader "Custom/Color2" {
 	Properties {
 		_color("Color", Color) = (1, 1, 1, 1)
 	}
