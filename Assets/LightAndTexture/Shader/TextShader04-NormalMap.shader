@@ -49,7 +49,7 @@
 			fixed4 frag(v2f f) :SV_Target
 			{
 				fixed4 normalColor = tex2D(_mainTex, f.uv.wz);
-				fixed3 tangentNormal = normalColor.xyz * 2 - 1;
+				fixed3 tangentNormal = UnpackNormal(normalColor);
 				fixed3 lightDir = normalize(WorldSpaceLightDir(f.worldVertex));
 				fixed3 texColor = tex2D(_mainTex, f.uv.xy) * _color.rgb;
 				fixed3 diffuse = _LightColor0.rgb * texColor * max(dot(tangentNormal, lightDir), 0);
